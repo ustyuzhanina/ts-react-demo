@@ -1,6 +1,6 @@
-let a: number = 5;
+// let a: number = 5;
 let b: string = 'common string';
-let c = true;
+// let c = true;
 
 const d: string[] = ['a', 'b', 'c'];
 
@@ -92,3 +92,40 @@ function performComplexAction(action: actionType | Info) {
       return 1;
   }
 }
+
+//enums
+enum Direction {
+  Up = 1,
+  Down,
+  Left,
+  Right
+}
+
+//могут быть строковые (без автоматического присваивания)
+//могут быть гетерогенные (смешанные) enums, с присванием функции в качестве значения в том числе
+
+//Tuple - кортеж
+const a: [number, string, number] = [1, 'ffgfg', 0];
+//можно использовать деструктуризацию и спред оператор для rest
+
+//Generics добавляем <.....>, которые можно далее использовать в любом месте функции
+
+function logTime<T>(num: T): T {
+  console.log(new Date());
+  return num;
+}
+
+interface MyInterFace {
+  transform: <T, F>(a: T) => F;
+}
+
+interface TimeStamp {
+  stamp: number;
+}
+
+function logTimeStamp<T extends TimeStamp>(num: T): T {
+  console.log(num.stamp);
+  return num;
+}
+
+
